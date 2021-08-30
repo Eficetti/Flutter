@@ -8,7 +8,7 @@ class HeaderAppBar extends StatelessWidget{
   Widget build(BuildContext context){
     return Stack(
       children: [
-        GradientBack('404 caniches not found'),
+        GradientBack('404 caniches not found',300,),
         CardImageList(),
       ],
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'iconContent.dart';
+import 'package:flutter/rendering.dart';
 
 // ignore: must_be_immutable
 class User extends StatelessWidget{
@@ -7,20 +7,20 @@ class User extends StatelessWidget{
   String details;
   String name;
   String img;
-  int iconColor;
-  User(this.details, this.name, this.img, this.iconColor);
+  User(this.details, this.name, this.img);
 
   Widget build(BuildContext context){
 
   final photo = Container(
     margin: EdgeInsets.only(
-      top: 20,
+      bottom: 330,
       left: 20,
     ),
     width: 80,
     height: 80,
     decoration: BoxDecoration(
       shape: BoxShape.circle,
+      border: Border.all(width: 2, color: const Color(0xFFFFFFFF)),
       image: DecorationImage(
         fit: BoxFit.cover,
         image: AssetImage(img)
@@ -30,14 +30,16 @@ class User extends StatelessWidget{
 
   final userName = Container(
     margin: EdgeInsets.only(
+      top: 120,
       left: 20,
     ),
     child: Text(
       name,
       textAlign: TextAlign.left,
       style: TextStyle(
+        color: Colors.white,
         fontFamily: 'Lato',
-        fontSize: 20,
+        fontSize: 25,
       ),
     ),
   );
@@ -58,44 +60,20 @@ class User extends StatelessWidget{
     ),
   );
 
-  final emailIcon = IconContent(
-    EdgeInsets.only(
-      top: 10,
-      left: 74,
-    ),
-    Icons.attach_email,
-    Color(iconColor),
-    50
-  );
 
   final userDetails =Container(
-    margin: EdgeInsets.only(
-      top: 20
-    ),
-    decoration: BoxDecoration(
-      border: Border(
-        bottom: BorderSide(
-          color: Colors.grey,
-          width: 1
-        )
-      )
-    ),
     child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         userName,
         userComment,
       ],
     ),
   ); 
+  
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         photo,
         userDetails,
-        Container(
-          child: emailIcon
-        ),
       ],
     );
   }

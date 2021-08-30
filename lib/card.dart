@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'floatingActionButton.dart';
 
 // ignore: must_be_immutable
 class CardImage extends StatelessWidget{
@@ -32,9 +33,12 @@ class CardImage extends StatelessWidget{
         ]
       ),
     );
-    return Container(
-      child: 
-      card,
+    return Stack(
+      alignment: Alignment(0.9,1.1),
+      children: [
+        card,
+        FloatingActionButtonGreen()
+      ],
     );
   }
 }
